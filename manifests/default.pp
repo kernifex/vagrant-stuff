@@ -26,6 +26,7 @@ class files {
  file { "/home/vagrant/.m2/settings.xml": ensure => file, source => "${config_path}/settings.xml", owner => "vagrant" }
  file { "props": path => "/OBPS/MavLift/src/main/resources/props", source => "${config_path}/props", recurse => true, owner => "vagrant" }
  file { "/OBPS/mktestdb.js": ensure => file, source => "${config_path}/mktestdb.js", owner => "vagrant" }
+ file { "/OBPS/MavLift/src/main/webapp/conf.html": ensure => file, source => "${config_path}/conf.html", owner => "vagrant" }
  file { "/etc/default/jetty": ensure => file, source => "${config_path}/jetty" }
  file { "/OBPS/MavLift/src/main/webapp/WEB-INF/jetty.xml": ensure => file, source => "${config_path}/jetty-web.xml" }
 }
@@ -62,13 +63,8 @@ class {
  "packages": stage => packages;
  "files": stage => files;
 }
+
 Stage['packages'] -> Stage['files'] -> Stage['compile']
 include packages
 include files
 include compile
-
-/*
- h2.db kopieren
- service { “mysql”: enable => true, ensure => running }
-  servicewatchdirbla
-*/
