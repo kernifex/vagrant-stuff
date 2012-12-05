@@ -15,7 +15,6 @@ so there's no need to compile on creation of a vm<br>
 <br>
 <br>
 td:<br>
- port forwardingthing oO, hm, der jetty service isch wohls prob, jetty:run geht oOoO<br>
  accountdb<br>
  moar options for mkmongodb.js<br>
  service { “jetty”: enable => true, ensure => running }<br>
