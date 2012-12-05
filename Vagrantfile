@@ -6,8 +6,6 @@ Vagrant::Config.run do |config|
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = File.expand_path("../manifests", __FILE__)
   end 
-#  config.vm.network :hostonly, "192.168.50.4"
-#  virtualbox restart -.-
   config.vm.forward_port 8080, 7070
   config.vm.share_folder "configs", "/configs", File.expand_path("../configs", __FILE__)
 end
